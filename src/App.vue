@@ -1,31 +1,38 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app style="font-family: 'Nanum Gothic', sans-serif">
+    <router-view></router-view>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
+<script>
+import axios from 'axios'
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+export default {
+  created () {
+    const token = window.localStorage.getItem('TOKEN')
+    if (token !== undefined && token !== '' && token !== null) {
+      axios({
+        url: '/private/authCheck',
+        method: 'get',
+        headers: {
+          'Authorization': window.localStorage.getItem('TOKEN')
+        }
+      })
+        .then(response => {
+          let loginInfo = {
+            memberId: response.data.data.memberId,
+            role: response.data.data.role,
+            token: response.data.data.token
+          }
+          this.$store.dispatch('signin', loginInfo)
+        })
+        .catch(error => {
+          alert('로그인 해주세요')
+          this.$router.push({ name: 'login' })
+        })
+      const payload = window.localStorage.getItem('AUTHTIME') - new Date().getTime() / 1000 / 60 / 60 > 2
+      this.$store.commit('authTime', payload)
+    }
+  }
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+</script>
