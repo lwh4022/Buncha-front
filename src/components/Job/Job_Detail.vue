@@ -1,7 +1,7 @@
 <template>
   <div class="pa-0 ma-0">
     <header-bar></header-bar>
-    <img src="@/assets/jobDetail.jpg" style="width:100%;height:calc(100vh - 64px);position:absolute;">
+    <img src="@/assets/jobDetail.jpg" style="width:100%;position:absolute;">
     <v-card
       max-width="800px"
       class="mx-auto mt-5 mb-5"

@@ -224,13 +224,13 @@ export default {
   watch: {
     selectionJob: function (newVal) {
       if(newVal === null){
-        this.selectionJob = ""
+        this.selectionJob = ''
       }
       this.orderingSearch()
     },
     selectionEdu: function (newVal) {
       if(newVal === null){
-        this.selectionEdu = ""
+        this.selectionEdu = ''
       }
       this.orderingSearch()
     }
@@ -280,7 +280,7 @@ export default {
         })
     },
     orderingSearch () {
-      if (this.selectionJob !== '' && this.selectionEdu !== '' && this.selectionEdu !== null && this.selectionJob !== null) {
+      if (this.selectionJob !== '' && this.selectionEdu !== '') {
         axios({
           method: 'GET',
           url: '/public/getFreelancerCards'+ '/' + encodeURIComponent(this.selectionJob) + '/' + encodeURIComponent(this.selectionEdu) + '/' + this.cardCounter,

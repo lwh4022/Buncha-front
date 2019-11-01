@@ -136,13 +136,20 @@ export default {
           if (response.data.data === null) {
             this.jobList = []
             this.isMore = false
+            this.cardCounter = 0
           } else {
-            this.jobList = response.data.data.info.info
+            if(this.cardCounter > 0){
+              this.jobList.concat(response.data.data.info.info)
+            } else{
+              this.jobList = response.data.data.info.info
+            }
             if (response.data.data.isFinal === true) {
               this.isMore = false
             } else if (response.data.data.isFinal === null) {
+              this.cardCounter = 0
               this.isMore = false
             } else {
+              this.cardCounter = 0
               this.isMore = true
             }
           }
@@ -167,8 +174,13 @@ export default {
               if (response.data.data === null) {
                 this.jobList = []
                 this.isMore = false
+                this.cardCounter = 0
               } else {
-                this.jobList = this.jobList.concat(response.data.data.info.info)
+                if(this.cardCounter > 0){
+                  this.jobList.concat(response.data.data.info.info)
+                } else{
+                  this.jobList = response.data.data.info.info
+                }
                 if (response.data.data.isFinal !== null && response.data.data.isFinal === true) {
                   this.isMore = false
                 } else if (response.data.data.isFinal === null) {
@@ -200,6 +212,7 @@ export default {
               if (response.data.data === null) {
                 this.jobList = []
                 this.isMore = false
+                this.cardCounter = 0
               } else {
                 this.jobList = this.jobList.concat(response.data.data.info.info)
                 if (response.data.data.isFinal !== null && response.data.data.isFinal === true) {
@@ -224,6 +237,7 @@ export default {
               if (response.data.data === null) {
                 this.jobList = []
                 this.isMore = false
+                this.cardCounter = 0
               } else {
                 this.jobList = this.jobList.concat(response.data.data.info.info)
                 if (response.data.data.isFinal !== null && response.data.data.isFinal === true) {
@@ -250,6 +264,7 @@ export default {
               if (response.data.data === null) {
                 this.jobList = []
                 this.isMore = false
+                this.cardCounter = 0
               } else {
                 this.jobList = this.jobList.concat(response.data.data.info.info)
                 if (response.data.data.isFinal !== null && response.data.data.isFinal === true) {
@@ -274,6 +289,7 @@ export default {
               if (response.data.data === null) {
                 this.jobList = []
                 this.isMore = false
+                this.cardCounter = 0
               } else {
                 this.jobList = this.jobList.concat(response.data.data.info.info)
                 if (response.data.data.isFinal !== null && response.data.data.isFinal === true) {
@@ -301,6 +317,7 @@ export default {
                 if (response.data.data === null) {
                   this.jobList = []
                   this.isMore = false
+                  this.cardCounter = 0
                 } else {
                   this.jobList = this.jobList.concat(response.data.data.info.info)
                   if (response.data.data.isFinal !== null && response.data.data.isFinal === true) {
@@ -325,6 +342,7 @@ export default {
                 if (response.data.data === null) {
                   this.jobList = []
                   this.isMore = false
+                  this.cardCounter = 0
                 } else {
                   this.jobList = this.jobList.concat(response.data.data.info.info)
                   if (response.data.data.isFinal !== null && response.data.data.isFinal === true) {

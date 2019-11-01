@@ -12,15 +12,12 @@
     </v-col>
     <v-col class="d-flex flex-column divOnImg">
       <!-- 모바일 위치 맞추기용 // 데스크탑에서는 사라짐 -->
-      <div class="hidden-md-and-up" style="height:12vh"></div>
-      <p class="font-weight-bold d-none d-sm-flex justify-center mb-8 display-2">검증된 프리랜서를 선택하세요</p>
-      <p class="font-weight-bold d-flex d-sm-none justify-center mb-1 display-2">검증된 프리랜서를</p>
-      <p class="font-weight-bold d-flex d-sm-none justify-center mb-8 display-2">선택하세요</p>
+      <p class="font-weight-bold justify-center mb-8 display-2">검증된 프리랜서를 선택하세요</p>
       <!-- 데스크탑 위치 맞추기용 // 모바일에서는 사라짐 -->
       <div class="hidden-md-and-down" style="height:5vh"></div>
       <v-btn color="info" class="headline pt-1 pb-2 ml-auto mr-auto" min-height="50px" max-height="100px" x-large><router-link :to="{name: 'jobEnroll'}" class="desktopMenu">업무 등록하러 가기</router-link></v-btn>
       <!-- 데스크탑 위치 맞추기용 // 모바일에서는 사라짐 -->
-      <div class="hidden-md-and-down" style="height:20vh"></div>
+      <div class="hidden-md-and-down" style="height:30vh"></div>
     </v-col>
   </v-row>
 </template>
@@ -37,9 +34,7 @@
     text-align:center;
   }
   .videoClass{
-    opacity: 0.5;
-    width:cover;
-    height: calc(100vh - 48px);
+    opacity: 0.5;    
   }
   .desktopMenu{
     color:white;
